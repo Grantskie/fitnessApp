@@ -1,0 +1,4 @@
+[debug] [fitnessapp-test] Classpath dependencies List()
+[debug] [fitnessapp-test] Dependencies from configurations List(fitnessapp)
+[debug] Bloop wrote the configuration of project 'fitnessapp-test' to 'C:\fitnessApp\.bloop\fitnessapp-test.json'
+[success] Generated .bloop\fitnessapp-test.json
