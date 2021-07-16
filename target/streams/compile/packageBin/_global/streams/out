@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\fitnessApp\target\scala-2.11\fitnessapp_2.11-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$printBorderHorz$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp$$anonfun$printBorderHorz$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$printBorderVert$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp$$anonfun$printBorderVert$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$printBorderVert$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp$$anonfun$printBorderVert$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$printBorderVert$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp$$anonfun$printBorderVert$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\fitnessApp\target\scala-2.11\classes\fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

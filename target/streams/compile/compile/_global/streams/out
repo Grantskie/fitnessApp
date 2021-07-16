@@ -1,0 +1,5 @@
+[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:65:21: not enough arguments for method signUpCheck: (checkStr: String, conn: java.sql.Connection, stmt: java.sql.Statement)Boolean.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter stmt.[0m
+[0m[[0m[31merror[0m] [0m[0m			while(signUpCheck(userName, stmt) == false){ [0m
+[0m[[0m[31merror[0m] [0m[0m			                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
