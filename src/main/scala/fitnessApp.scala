@@ -1,4 +1,5 @@
 import scala.io.StdIn.readLine
+import scala.io.StdIn.readInt
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -114,18 +115,80 @@ object fitnessApp {
 			return userName
 	}
 	def welcomeScreen(stmt:Statement, uName:String){
-		println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-		printBorderHorz(1)
-		printBorderVert(s"Welcome $uName")
-		printBorderHorz(1)
-		printBorderVert(2)
-		printBorderVert("Create Rountine")
-		printBorderVert("View Routines")
-		printBorderVert("Quit")
-		printBorderVert(2)
-		printBorderHorz(1)
+		var input = -1
+		while(input != 0){
+			println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+			printBorderHorz(1)
+			printBorderVert(s"Welcome $uName")
+			printBorderHorz(1)
+			printBorderVert(2)
+			printBorderVert("1) Create Routine")
+			printBorderVert("2) View Routines  ")
+			printBorderVert("0) Quit           ")
+			printBorderVert(2)
+			printBorderHorz(1)
+			print(">Input<\n")
+			input = readInt()
+			input match {
+				case 0 => {
+					printBorderHorz(1)
+					printBorderVert("Goodbye")
+					printBorderHorz(1)		
+				}
+				case 1 => createRoutine(uName, stmt)
+				case 2 => print("viewRoutines()")
+				case _ => print("Try again")
+			}
+		}
 	}
-
+	def createRoutine(uName:String, stmt:Statement){
+		var inputStr = ""
+		var userInput = ""
+		while(userInput != "<"){
+			printBorderHorz(1)
+			printBorderVert("Lets build a routine!")
+			printBorderHorz(1)
+			printBorderVert(2)
+			printBorderVert("First, enter a name for your new routine")
+			printBorderVert(2)
+			printBorderHorz(1)
+			val routineName = readLine(">Input<")
+			displayRoutine(uName, stmt, routineName)
+			userInput = readLine()
+		}
+		
+	}
+	def displayRoutine(uName:String, stmt:Statement, routineName:String){
+		var selectQuery = s"SELECT * FROM routine WHERE username = \'$uName\' AND routineName = \'$routineName\'"
+		println(selectQuery)
+		val rs = stmt.executeQuery(selectQuery)
+		if (rs.next() == false){
+			printBorderHorz(1)
+			printBorderVert(s"Routine: $routineName")
+			printBorderHorz(1)
+			println("|Sunday   |")
+			printBorderHorz(1)
+			println("|Monday   |")
+			printBorderHorz(1)
+			println("|Tuesday  |")
+			printBorderHorz(1)
+			println("|Wednesday|")
+			printBorderHorz(1)
+			println("|Thursday |")
+			printBorderHorz(1)
+			println("|Friday   |")
+			printBorderHorz(1)
+			println("|Saturday |")
+			printBorderHorz(1)
+		}
+		else{
+			while(rs.next()){
+				print(rs.getString("exercise"))
+				print(rs.getString("amount"))
+				print(rs.getString("day"))
+			}
+		}
+	}
 	def main(args: Array[String]): Unit = {
 
 		val conn = getConnect()
