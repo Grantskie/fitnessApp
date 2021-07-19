@@ -3,11 +3,14 @@ import scala.io.StdIn.readInt
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.Statement
+import java.sql.ResultSet
+import classes.User
+import classes.Routine
+import classes.Aesthetics
 
 object fitnessApp {
-	val borderLength = 56
+	
 
 	def getConnect() :Connection= {
 		val url = "jdbc:mysql://localhost:3306/fitnessapp"
@@ -20,32 +23,18 @@ object fitnessApp {
 		return connection
 	}
 
-	def printBorderVert(borderCount: Int){
-		for(i<-1 to borderCount)
-		println("|                                                      |")
-	}
-	def printBorderVert(borderStr: String){
-		val halfBorderLength = (borderLength - borderStr.length()) / 2
-		var newStr = "|"
-		for(i<-2 to halfBorderLength) newStr += " "
-		newStr += borderStr
-		for(i<-2 to halfBorderLength) newStr += " "
-		newStr+="|"
-		println(newStr)
-	}
-	def printBorderHorz(borderCount: Int){
-		for(i<-1 to borderCount)
-		println("--------------------------------------------------------")
-	}
+	
+	
+	
 	def openingScreen(){
-		printBorderHorz(1)
-		printBorderVert("Welcome to the Fitness App! ")
-		printBorderHorz(1)
-		printBorderVert(1)
-		printBorderVert("1) Sign Up")
-		printBorderVert("2) Login  ")
-		printBorderVert(1)
-		printBorderHorz(1)
+		Aesthetics.printBorderHorz(1)
+		Aesthetics.printBorderVert("Welcome to the Fitness App! ")
+		Aesthetics.printBorderHorz(1)
+		Aesthetics.printBorderVert(1)
+		Aesthetics.printBorderVert("1) Sign Up")
+		Aesthetics.printBorderVert("2) Login  ")
+		Aesthetics.printBorderVert(1)
+		Aesthetics.printBorderHorz(1)
 	}
 	def signUpCheck(checkStr:String, stmt:Statement):Boolean={
 		var checkBool = true
@@ -57,25 +46,25 @@ object fitnessApp {
 		return checkBool
 	}
 	def signUp(stmt:Statement): String ={
-			printBorderHorz(1)
-			printBorderVert("Lets get you signed up!")
-			printBorderHorz(1)
-			printBorderVert(">Enter a username<")
-			printBorderHorz(1)
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert("Lets get you signed up!")
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(">Enter a username<")
+			Aesthetics.printBorderHorz(1)
 			var userName = readLine()
 			while(signUpCheck(userName, stmt) == false){ 
-				printBorderHorz(1)
-				printBorderVert("!UH OH!")
-				printBorderVert("That username has been taken")
-				printBorderVert("please try another")
-				printBorderHorz(1)
-				printBorderVert(">Enter a username<")
-				printBorderHorz(1)
+				Aesthetics.printBorderHorz(1)
+				Aesthetics.printBorderVert("!UH OH!")
+				Aesthetics.printBorderVert("That username has been taken")
+				Aesthetics.printBorderVert("please try another")
+				Aesthetics.printBorderHorz(1)
+				Aesthetics.printBorderVert(">Enter a username<")
+				Aesthetics.printBorderHorz(1)
 				userName = readLine()
 			}
-			printBorderHorz(1)
-			printBorderVert(">Enter a password<")
-			printBorderHorz(1)
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(">Enter a password<")
+			Aesthetics.printBorderHorz(1)
 			val password = readLine()
 			val inputString = s"INSERT INTO login(username, password) VALUES (\'$userName\', \'$password\')"
 			print(inputString)
@@ -83,11 +72,11 @@ object fitnessApp {
 			return userName
 	}
 	def login(stmt:Statement): String ={
-			printBorderHorz(1)
-			printBorderVert("Go ahead and login")
-			printBorderHorz(1)
-			printBorderVert(">Enter your username<")
-			printBorderHorz(1)
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert("Go ahead and login")
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(">Enter your username<")
+			Aesthetics.printBorderHorz(1)
 			var userName = readLine()
 			val inputQuery = s"SELECT username, password FROM login WHERE username = \'$userName\'"
 			val rs = stmt.executeQuery(inputQuery)
@@ -101,14 +90,14 @@ object fitnessApp {
 				userName = signUp(stmt)
 			}
 			else{
-				printBorderHorz(1)
-				printBorderVert(">Enter your password<")
-				printBorderHorz(1)
+				Aesthetics.printBorderHorz(1)
+				Aesthetics.printBorderVert(">Enter your password<")
+				Aesthetics.printBorderHorz(1)
 				var password = readLine()
 				while((pwdTest == password) == false){
-					printBorderHorz(1)
-					printBorderVert(">Wrong password try again<")
-					printBorderHorz(1)
+					Aesthetics.printBorderHorz(1)
+					Aesthetics.printBorderVert(">Wrong password try again<")
+					Aesthetics.printBorderHorz(1)
 					password = readLine()
 				}
 			}
@@ -118,25 +107,25 @@ object fitnessApp {
 		var input = -1
 		while(input != 0){
 			println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-			printBorderHorz(1)
-			printBorderVert(s"Welcome $uName")
-			printBorderHorz(1)
-			printBorderVert(2)
-			printBorderVert("1) Create Routine")
-			printBorderVert("2) View Routines  ")
-			printBorderVert("0) Quit           ")
-			printBorderVert(2)
-			printBorderHorz(1)
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(s"Welcome $uName")
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(2)
+			Aesthetics.printBorderVert("1) Create Routine")
+			Aesthetics.printBorderVert("2) View Routines  ")
+			Aesthetics.printBorderVert("0) Quit           ")
+			Aesthetics.printBorderVert(2)
+			Aesthetics.printBorderHorz(1)
 			print(">Input<\n")
 			input = readInt()
 			input match {
 				case 0 => {
-					printBorderHorz(1)
-					printBorderVert("Goodbye")
-					printBorderHorz(1)		
+					Aesthetics.printBorderHorz(1)
+					Aesthetics.printBorderVert("Goodbye")
+					Aesthetics.printBorderHorz(1)		
 				}
 				case 1 => createRoutine(uName, stmt)
-				case 2 => print("viewRoutines()")
+				case 2 => print(viewRoutines(uName, stmt))
 				case _ => print("Try again")
 			}
 		}
@@ -144,51 +133,47 @@ object fitnessApp {
 	def createRoutine(uName:String, stmt:Statement){
 		var inputStr = ""
 		var userInput = ""
+		var break = true
 		while(userInput != "<"){
-			printBorderHorz(1)
-			printBorderVert("Lets build a routine!")
-			printBorderHorz(1)
-			printBorderVert(2)
-			printBorderVert("First, enter a name for your new routine")
-			printBorderVert(2)
-			printBorderHorz(1)
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert("Lets build a routine!")
+			Aesthetics.printBorderHorz(1)
+			Aesthetics.printBorderVert(2)
+			Aesthetics.printBorderVert("First, enter a name for your new routine")
+			Aesthetics.printBorderVert(2)
+			Aesthetics.printBorderHorz(1)
 			val routineName = readLine(">Input<")
-			displayRoutine(uName, stmt, routineName)
-			userInput = readLine()
+			val newRoutine = new Routine(uName, routineName, stmt)
+			while(userInput != "<"){
+				newRoutine.displayRoutine()
+				Aesthetics.printBorderVert("Select a day to begin with or enter < to go back")
+				Aesthetics.printBorderHorz(1)
+				println(">Input<")
+				userInput = readLine()
+				while(userInput != "<" && break){
+					try{
+						userInput.toInt
+					}
+					catch{case e: Exception => userInput = "0"}
+					if(1 > userInput.toInt  || userInput.toInt > 7){
+						println("Enter 1-7 or < to go back")
+						userInput = readLine()
+					}
+					else{
+						newRoutine.addDay(userInput)
+						break = false
+					}
+				}
+			}
 		}
 		
 	}
-	def displayRoutine(uName:String, stmt:Statement, routineName:String){
-		var selectQuery = s"SELECT * FROM routine WHERE username = \'$uName\' AND routineName = \'$routineName\'"
-		println(selectQuery)
-		val rs = stmt.executeQuery(selectQuery)
-		if (rs.next() == false){
-			printBorderHorz(1)
-			printBorderVert(s"Routine: $routineName")
-			printBorderHorz(1)
-			println("|Sunday   |")
-			printBorderHorz(1)
-			println("|Monday   |")
-			printBorderHorz(1)
-			println("|Tuesday  |")
-			printBorderHorz(1)
-			println("|Wednesday|")
-			printBorderHorz(1)
-			println("|Thursday |")
-			printBorderHorz(1)
-			println("|Friday   |")
-			printBorderHorz(1)
-			println("|Saturday |")
-			printBorderHorz(1)
-		}
-		else{
-			while(rs.next()){
-				print(rs.getString("exercise"))
-				print(rs.getString("amount"))
-				print(rs.getString("day"))
-			}
-		}
+
+	def viewRoutines(uName:String, stmt:Statement){
+		val test = new Routine(uName, "x1", stmt)
+		test.displayRoutine()
 	}
+	
 	def main(args: Array[String]): Unit = {
 
 		val conn = getConnect()

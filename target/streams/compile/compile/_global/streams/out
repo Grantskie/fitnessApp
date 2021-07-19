@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:138:15: not found: value createRoutine[0m
-[0m[[0m[31merror[0m] [0m[0m				case 1 => createRoutine()[0m
-[0m[[0m[31merror[0m] [0m[0m				          ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:139:15: not found: value viewRoutines[0m
-[0m[[0m[31merror[0m] [0m[0m				case 2 => viewRoutines()[0m
-[0m[[0m[31merror[0m] [0m[0m				          ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:15:64: ']' expected but '(' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    val routineMap = scala.collection.mutable.Map[String, Array()]()[0m
+[0m[[0m[31merror[0m] [0m[0m                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
