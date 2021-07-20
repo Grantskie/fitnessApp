@@ -1,12 +1,12 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\fitnessApp\target\scala-2.11\classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m

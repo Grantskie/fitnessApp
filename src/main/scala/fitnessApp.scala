@@ -106,7 +106,7 @@ object fitnessApp {
 	def welcomeScreen(stmt:Statement, uName:String){
 		var input = -1
 		while(input != 0){
-			println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+			//println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 			Aesthetics.printBorderHorz(1)
 			Aesthetics.printBorderVert(s"Welcome $uName")
 			Aesthetics.printBorderHorz(1)
