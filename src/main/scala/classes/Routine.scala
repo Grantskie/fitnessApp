@@ -12,39 +12,21 @@ import java.sql.ResultSet
 
 class Routine(username: String, routineName: String, stmt:Statement){
 
-    var routineInsert = "INSERT INTO routine (\'username\', \'routineName\', \'exercise\', \'amount\', \'day\') VALUES "
+    var routineInsert = "INSERT INTO routine (username, routineName, exercise, amount, day) VALUES "
     val dayArray = Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
-    val routineArray = new ArrayBuffer[ArrayBuffer[String]]
+    val routineList = List.fill(7)(ArrayBuffer[Tuple2[String,String]]())
+	var exerciseStr = ""
+	
 
     def displayRoutine(){
-		var selectQuery = s"SELECT * FROM routine WHERE username = \'$username\' AND routineName = \'$routineName\'"
-		println(selectQuery)
-		val rs = stmt.executeQuery(selectQuery)
-		if (rs.next() == false){
+		Aesthetics.printBorderHorz(1)
+		Aesthetics.printBorderVert(s"Routine: $routineName")
+		Aesthetics.printBorderHorz(1)
+		for(i<-0 to 6){
+			routineList(i).foreach(arg=>exerciseStr += arg._1 + "->" + arg._2 + "\t")
+			println("| "+(i+1)+") "+dayArray(i)+"   |"  + exerciseStr)
+			exerciseStr = ""
 			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert(s"Routine: $routineName")
-			Aesthetics.printBorderHorz(1)
-			println("| 1) Sunday   |")
-			Aesthetics.printBorderHorz(1)
-			println("| 2) Monday   |")
-			Aesthetics.printBorderHorz(1)
-			println("| 3) Tuesday  |")
-			Aesthetics.printBorderHorz(1)
-			println("| 4) Wednesday|")
-			Aesthetics.printBorderHorz(1)
-			println("| 5) Thursday |")
-			Aesthetics.printBorderHorz(1)
-			println("| 6) Friday   |")
-			Aesthetics.printBorderHorz(1)
-			println("| 7) Saturday |")
-			Aesthetics.printBorderHorz(1)
-		}
-		else{
-			do{
-				print(rs.getString("exercise"))
-				print(rs.getString("amount"))
-				print(rs.getString("day"))
-			}while(rs.next())
 		}
 	}
 
@@ -59,11 +41,52 @@ class Routine(username: String, routineName: String, stmt:Statement){
         Aesthetics.printHeader("Enter amount (Distance, duration, sets/reps)")
         println(">Input<")
         val amountInput = readLine()
-        
-
-        
+		val tupleInput = Tuple2(exerciseInput, amountInput)
+		routineList(dayNumber).append(tupleInput)
         routineInsert += s"(\'$username\', \'$routineName\', \'$exerciseInput\', \'$amountInput\', \'$day\'),"
-        println(routineInsert)
-        
     }
+
+	def insertRoutine(stmt:Statement){
+		routineInsert = routineInsert.substring(0,routineInsert.length()-1)
+		println(routineInsert)
+		stmt.executeUpdate(routineInsert)
+	}
+
+	def generateRoutineData(stmt:Statement){
+		var selectQuery = s"SELECT day, exercise, amount FROM routine WHERE username = \'$username\' AND routineName = \'$routineName\'"
+		val rs = stmt.executeQuery(selectQuery)
+		var insertTuple = ("", "")
+		while(rs.next()){
+			rs.getString("day") match{
+				case "Sunday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(0).append(insertTuple)
+				}
+				case "Monday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(1).append(insertTuple)
+				}
+				case "Tuesday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(2).append(insertTuple)
+				}
+				case "Wednesday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(3).append(insertTuple)
+				}
+				case "Thursday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(4).append(insertTuple)
+				}
+				case "Friday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(5).append(insertTuple)
+				}
+				case "Saturday" => {
+					insertTuple = (rs.getString("exercise"), rs.getString("amount"))
+					routineList(6).append(insertTuple)
+				}
+			}
+		}
+	}
 }

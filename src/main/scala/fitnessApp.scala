@@ -134,7 +134,7 @@ object fitnessApp {
 		var inputStr = ""
 		var userInput = ""
 		var break = true
-		while(userInput != "<"){
+		while(userInput != "<" && userInput != ">"){
 			Aesthetics.printBorderHorz(1)
 			Aesthetics.printBorderVert("Lets build a routine!")
 			Aesthetics.printBorderHorz(1)
@@ -144,13 +144,15 @@ object fitnessApp {
 			Aesthetics.printBorderHorz(1)
 			val routineName = readLine(">Input<")
 			val newRoutine = new Routine(uName, routineName, stmt)
-			while(userInput != "<"){
+			while(userInput != "<" && userInput != ">"){
+				break = true
 				newRoutine.displayRoutine()
-				Aesthetics.printBorderVert("Select a day to begin with or enter < to go back")
+				Aesthetics.printBorderVert("Select a day")
+				Aesthetics.printBorderVert("< Go Back                 Save >")
 				Aesthetics.printBorderHorz(1)
 				println(">Input<")
 				userInput = readLine()
-				while(userInput != "<" && break){
+				while(userInput != "<" && break && userInput != ">"){
 					try{
 						userInput.toInt
 					}
@@ -165,13 +167,41 @@ object fitnessApp {
 					}
 				}
 			}
+			if(userInput == ">"){
+				newRoutine.insertRoutine(stmt)
+			}
 		}
 		
 	}
 
 	def viewRoutines(uName:String, stmt:Statement){
-		val test = new Routine(uName, "x1", stmt)
-		test.displayRoutine()
+		val user = new User(uName, stmt)
+		val routineArray:Array[String] = user.getRoutines()
+		var userInput = ""
+		do{
+			Aesthetics.printHeader(s"$uName's routines")
+			for(i<-0 to (routineArray.size - 1)){
+				Aesthetics.printBorderVert((i + 1) +") " + routineArray(i))
+				Aesthetics.printBorderHorz(1)
+			}
+			userInput = readLine(">Input<")
+			try{
+				userInput.toInt
+			}
+			catch{case e: Exception => userInput = "0"}
+			if(1 > userInput.toInt  || userInput.toInt > routineArray.size){
+				println("Enter 1-7 or < to go back")
+				userInput = readLine()
+			}
+			else{
+				val newRoutine = new Routine(uName, routineArray(userInput.toInt - 1), stmt)
+				newRoutine.generateRoutineData(stmt)
+				newRoutine.displayRoutine()
+				Aesthetics.printBorderVert("< back                 enter data >")
+				Aesthetics.printBorderHorz(1)
+				userInput = readLine(">Input<")
+			}
+		}while(userInput != "<")
 	}
 	
 	def main(args: Array[String]): Unit = {

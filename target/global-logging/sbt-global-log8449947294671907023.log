@@ -1,0 +1,29 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__runWatch console0, Some(d618e70b-6def-47ad-a812-19129bf2e74b), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__preWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: bloop.integrations.sbt.Offloader$$anon$1@118cbded, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to C:\fitnessApp\target\scala-2.11\classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:34: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:36: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:38: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                    ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:40: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:42: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:44: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:18:46: a pure expression does nothing in statement position; you may be omitting necessary parentheses[0m
+[0m[[0m[33mwarn[0m] [0m[0m	routineArray.append(ArrayBuffer(1,2,3,4,5,6,7))[0m
+[0m[[0m[33mwarn[0m] [0m[0m	                                            ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m

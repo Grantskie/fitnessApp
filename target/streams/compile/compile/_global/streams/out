@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\classes\Routine.scala:15:64: ']' expected but '(' found.[0m
-[0m[[0m[31merror[0m] [0m[0m    val routineMap = scala.collection.mutable.Map[String, Array()]()[0m
-[0m[[0m[31merror[0m] [0m[0m                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:182:15: value printBorderHeader is not a member of object classes.Aesthetics[0m
+[0m[[0m[31merror[0m] [0m[0m			Aesthetics.printBorderHeader(s"$i) " + routineArray(i))[0m
+[0m[[0m[31merror[0m] [0m[0m			           ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
