@@ -1,20 +1,65 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\fitnessApp\target\scala-2.11\classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewExercises$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewData$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User$$anonfun$generateRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1$$anonfun$apply$mcVI$sp$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderHorz$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1$$anonfun$apply$mcVI$sp$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$getDayCol$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewExercises$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewData$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User$$anonfun$generateRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1$$anonfun$apply$mcVI$sp$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderHorz$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1$$anonfun$apply$mcVI$sp$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$getDayCol$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewExercises$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewData$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$$anonfun$viewRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User$$anonfun$generateRoutines$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$getExerciseSet$1$$anonfun$apply$mcVI$sp$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderHorz$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$displayRoutine$1$$anonfun$apply$mcVI$sp$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$getDayCol$1.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	fitnessApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routine$$anonfun$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Aesthetics$$anonfun$printBorderVert$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\fitnessApp\target\scala-2.11\classes.bak[0m

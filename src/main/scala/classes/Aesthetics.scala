@@ -1,15 +1,16 @@
 package classes
 
+//This class is used for methods pertaining to printing and making prints neater
 object Aesthetics{
 
     val borderLength = 56
 
-    def printBorderVert(borderCount: Int){
+    def printBorderVert(borderCount: Int){//prints a number of vertical borders
 		    for(i<-1 to borderCount)
 		    println("|                                                      |")
 	    }
 
-    def printBorderVert(borderStr: String){
+    def printBorderVert(borderStr: String){//prints a vertical border around a given string
 		    val halfBorderLength = (borderLength - borderStr.length()) / 2
 		    var newStr = "|"
 			val additionalSpace = borderStr.length % 2
@@ -21,18 +22,18 @@ object Aesthetics{
 		    println(newStr)
 	    }
 
-    def printBorderHorz(borderCount: Int){
+    def printBorderHorz(borderCount: Int){//prints a given number of horzontal borders
 		    for(i<-1 to borderCount)
 		    println("--------------------------------------------------------")
 	    }
 
-    def printHeader(headStr:String){
+    def printHeader(headStr:String){//prints a given string enclosed by borders
         printBorderHorz(1)
         printBorderVert(headStr)
         printBorderHorz(1)
     }
 	
-	def getDayCol(dayStr:String): String = {
+	def getDayCol(dayStr:String): String = {//used for printing routine views and aligning the borders around the days of the week
 		val max = 12
 		val diff = max - dayStr.length()
 		var resStr = "| " + dayStr

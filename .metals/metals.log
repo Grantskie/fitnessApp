@@ -8001,3 +8001,162 @@ No more data in the client stdin, exiting...
 No more data in the client stdin, exiting...
 No more data in the server stdin, exiting...
 No more data in the server stdin, exiting...
+[0m2021.07.21 11:39:32 INFO  Started: Metals version 0.10.5 in workspace 'C:\fitnessApp' for client Visual Studio Code 1.58.2.[0m
+[0m2021.07.21 11:39:32 INFO  time: initialize in 0.31s[0m
+[0m2021.07.21 11:39:32 INFO  Attempting to connect to the build server...[0m
+[0m2021.07.21 11:39:32 WARN  no build target for: C:\fitnessApp\src\main\scala\fitnessApp.scala[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 31757'...
+Waiting for the bsp connection to come up...
+[0m2021.07.21 11:39:32 INFO  skipping build import with status 'Installed'[0m
+Waiting for the bsp connection to come up...
+[0m2021.07.21 11:39:35 INFO  no build target: using presentation compiler with only scala-library: 2.12.14[0m
+Waiting for the bsp connection to come up...
+Waiting for the bsp connection to come up...
+[0m2021.07.21 11:39:38 INFO  time: code lens generation in 4.96s[0m
+No server running at 127.0.0.1:8212, let's fire one...
+Resolving ch.epfl.scala:bloop-frontend_2.12:1.4.8-19-4d9f966b...
+Starting bloop server at 127.0.0.1:8212...
+Attempting a connection to the server...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Loading 2 projects from 'c:\fitnessApp\.bloop'...
+[0m[32m[D][0m Loading project from 'c:\fitnessApp\.bloop\fitnessapp-test.json'
+[0m[32m[D][0m Loading project from 'c:\fitnessApp\.bloop\fitnessapp.json'
+[0m[32m[D][0m Cache miss for scala instance org.scala-lang:scala-compiler:2.11.12.
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\jline\jline\2.14.3\jline-2.14.3.jar
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parser-combinators_2.11\1.0.4\scala-parser-combinators_2.11-1.0.4.jar
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-xml_2.11\1.0.5\scala-xml_2.11-1.0.5.jar
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-compiler\2.11.12\scala-compiler-2.11.12.jar
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.11.12\scala-library-2.11.12.jar
+[0m[32m[D][0m   => C:\Users\grant\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-reflect\2.11.12\scala-reflect-2.11.12.jar
+[0m[32m[D][0m Configured SemanticDB in projects 'fitnessapp-test', 'fitnessapp'
+[0m[32m[D][0m Missing analysis file for project 'fitnessapp-test'
+[0m[32m[D][0m Loading previous analysis for 'fitnessapp' from 'C:\fitnessApp\target\streams\compile\bloopAnalysisOut\_global\streams\inc_compile_2.11.zip'.
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:31757...
+The server is listening for incoming connections at tcp://127.0.0.1:31757...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.21 11:39:38 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\grant\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.21 11:39:38 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 18672'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:18672...
+The server is listening for incoming connections at tcp://127.0.0.1:18672...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.21 11:39:38 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\grant\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.21 11:39:38 INFO  time: Connected to build server in 5.98s[0m
+[0m2021.07.21 11:39:38 INFO  Connected to Build server: Bloop v1.4.8-19-4d9f966b[0m
+[0m2021.07.21 11:39:38 INFO  time: Imported build in 0.21s[0m
+[0m2021.07.21 11:39:42 INFO  time: indexed workspace in 3.12s[0m
+[0m2021.07.21 11:40:26 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:40:30 INFO  time: compiled fitnessapp in 3.84s[0m
+Jul 21, 2021 11:40:39 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 63
+Jul 21, 2021 11:46:28 AM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: String index out of range: -1
+[0m2021.07.21 11:46:43 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:46:45 INFO  time: compiled fitnessapp in 1.7s[0m
+[0m2021.07.21 11:50:47 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:50:49 INFO  time: compiled fitnessapp in 1.25s[0m
+[0m2021.07.21 11:51:11 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:51:13 INFO  time: compiled fitnessapp in 1.4s[0m
+[0m2021.07.21 11:52:58 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:52:59 INFO  time: compiled fitnessapp in 1.14s[0m
+[0m2021.07.21 11:53:24 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 11:53:25 INFO  time: compiled fitnessapp in 1.07s[0m
+[0m2021.07.21 12:02:07 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 12:02:08 INFO  time: compiled fitnessapp in 1.04s[0m
+[0m2021.07.21 12:14:04 INFO  time: code lens generation in 3.12s[0m
+[0m2021.07.21 12:18:24 INFO  running 'C:\Program Files\AdoptOpenJDK\jdk-8.0.292.10-hotspot\bin\java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar C:\Users\grant\AppData\Local\Temp\metals6532011220729020220\sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'[0m
+[0m2021.07.21 12:18:25 INFO  [info] welcome to sbt 1.5.2 (AdoptOpenJDK Java 1.8.0_292)[0m
+[0m2021.07.21 12:18:25 INFO  [info] loading settings for project fitnessapp-build-build from metals.sbt ...[0m
+[0m2021.07.21 12:18:26 INFO  [info] loading project definition from C:\fitnessApp\project\project[0m
+[0m2021.07.21 12:18:26 INFO  [info] loading settings for project fitnessapp-build from metals.sbt ...[0m
+[0m2021.07.21 12:18:26 INFO  [info] loading project definition from C:\fitnessApp\project[0m
+[0m2021.07.21 12:18:29 INFO  [success] Generated .bloop\fitnessapp-build.json[0m
+[0m2021.07.21 12:18:29 INFO  [success] Total time: 2 s, completed Jul 21, 2021 12:18:29 PM[0m
+[0m2021.07.21 12:18:29 INFO  [info] loading settings for project fitnessapp from build.sbt ...[0m
+[0m2021.07.21 12:18:29 INFO  [info] set current project to fitnessApp (in build file:/C:/fitnessApp/)[0m
+[0m2021.07.21 12:18:30 INFO  [success] Generated .bloop\fitnessapp.json[0m
+[0m2021.07.21 12:18:30 INFO  [success] Generated .bloop\fitnessapp-test.json[0m
+[0m2021.07.21 12:18:30 INFO  [success] Total time: 1 s, completed Jul 21, 2021 12:18:30 PM[0m
+[0m2021.07.21 12:18:30 INFO  sbt bloopInstall exit: 0[0m
+[0m2021.07.21 12:18:30 INFO  time: ran 'sbt bloopInstall' in 6.12s[0m
+[0m2021.07.21 12:18:30 INFO  Disconnecting from Bloop session...[0m
+[0m2021.07.21 12:18:30 INFO  Shut down connection with build server.[0m
+[0m2021.07.21 12:18:30 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the client stdin, exiting...
+No more data in the server stdin, exiting...
+No more data in the server stdin, exiting...
+[0m2021.07.21 12:18:30 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 25267'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Loading 2 projects from 'c:\fitnessApp\.bloop'...
+[0m[32m[D][0m Loading project from 'c:\fitnessApp\.bloop\fitnessapp.json'
+[0m[32m[D][0m Loading project from 'c:\fitnessApp\.bloop\fitnessapp-test.json'
+[0m[32m[D][0m Configured SemanticDB in projects 'fitnessapp-test', 'fitnessapp'
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:25267...
+The server is listening for incoming connections at tcp://127.0.0.1:25267...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.21 12:18:30 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\grant\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.21 12:18:30 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 21810'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:21810...
+The server is listening for incoming connections at tcp://127.0.0.1:21810...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.21 12:18:31 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\grant\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.21 12:18:31 INFO  time: Connected to build server in 0.55s[0m
+[0m2021.07.21 12:18:31 INFO  Connected to Build server: Bloop v1.4.8-19-4d9f966b[0m
+[0m2021.07.21 12:18:31 INFO  time: indexed workspace in 0.58s[0m
+[0m2021.07.21 12:18:32 INFO  compiling fitnessapp (4 scala sources)[0m
+[0m2021.07.21 12:18:33 INFO  time: compiled fitnessapp in 1.4s[0m
+Jul 21, 2021 12:31:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 784
+[0m2021.07.21 15:36:19 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 15:36:21 INFO  time: compiled fitnessapp in 1.46s[0m
+[0m2021.07.21 15:41:29 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 15:41:30 INFO  time: compiled fitnessapp in 1.27s[0m
+something's wrong: no file:///C:/fitnessApp/src/main/scala/fitnessApp.scala in Array[String]RangePosition(file:///C:/fitnessApp/src/main/scala/fitnessApp.scala, 5591, 5591, 5604)
+something's wrong: no file:///C:/fitnessApp/src/main/scala/fitnessApp.scala in Array[String]RangePosition(file:///C:/fitnessApp/src/main/scala/fitnessApp.scala, 5591, 5591, 5604)
+Jul 21, 2021 3:53:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3241
+something's wrong: no file:///C:/fitnessApp/src/main/scala/fitnessApp.scala in Array[String]RangePosition(file:///C:/fitnessApp/src/main/scala/fitnessApp.scala, 9899, 9899, 9912)
+[0m2021.07.21 15:54:56 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 15:54:56 INFO  time: compiled fitnessapp in 0.95s[0m
+Jul 21, 2021 3:55:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3319
+Jul 21, 2021 3:55:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3326
+Jul 21, 2021 3:56:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3383
+[0m2021.07.21 15:59:32 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 15:59:32 INFO  time: compiled fitnessapp in 0.82s[0m
+Jul 21, 2021 3:59:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3747
+Jul 21, 2021 4:00:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3831
+Jul 21, 2021 4:00:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3836
+[0m2021.07.21 16:00:40 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 16:00:40 INFO  time: compiled fitnessapp in 0.62s[0m
+[0m2021.07.21 16:01:24 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 16:01:24 INFO  time: compiled fitnessapp in 0.64s[0m
+Jul 21, 2021 4:01:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3914
+[0m2021.07.21 16:06:56 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 16:06:56 INFO  time: compiled fitnessapp in 0.88s[0m
+Jul 21, 2021 4:06:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4326
+[0m2021.07.21 16:06:59 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 16:06:59 INFO  time: compiled fitnessapp in 0.92s[0m

@@ -5,15 +5,16 @@ import java.sql.DriverManager
 import java.sql.SQLException
 import java.sql.Statement
 import java.sql.ResultSet
+import scala.collection.mutable.ArrayBuffer
+//other classes
 import classes.User
 import classes.Routine
 import classes.Aesthetics
-import scala.collection.mutable.ArrayBuffer
 
 object fitnessApp {
 	
 
-	def getConnect() :Connection= {
+	def getConnect() :Connection= { //getConnect is the method used to connect to the mysql database and returns the connection
 		val url = "jdbc:mysql://localhost:3306/fitnessapp"
  		val driver = "com.mysql.cj.jdbc.Driver"
   		val username = "scalaFitnessApp"
@@ -23,21 +24,15 @@ object fitnessApp {
 		
 		return connection
 	}
-
-	
-	
-	
-	def openingScreen(){
-		Aesthetics.printBorderHorz(1)
-		Aesthetics.printBorderVert("Welcome to the Fitness App! ")
-		Aesthetics.printBorderHorz(1)
+	def openingScreen(){//openingScreen prints out the signup/login screen
+		Aesthetics.printHeader("Welcome to the Fitness App! ")
 		Aesthetics.printBorderVert(1)
 		Aesthetics.printBorderVert("1) Sign Up")
 		Aesthetics.printBorderVert("2) Login  ")
 		Aesthetics.printBorderVert(1)
 		Aesthetics.printBorderHorz(1)
 	}
-	def signUpCheck(checkStr:String, stmt:Statement):Boolean={
+	def signUpCheck(checkStr:String, stmt:Statement):Boolean={//signUpCheck checks to see if a username is already in use when a user signs up
 		var checkBool = true
 		val inputQuery = s"SELECT username FROM login WHERE username = \'$checkStr\'"
 		val rs = stmt.executeQuery(inputQuery)
@@ -46,71 +41,56 @@ object fitnessApp {
 		}
 		return checkBool
 	}
-	def signUp(stmt:Statement): String ={
+	def signUp(stmt:Statement): String ={//signUp creates an account on the app with a unique username and a password	
+		Aesthetics.printHeader("Lets get you signed up!")
+		Aesthetics.printBorderVert(">Enter a username<")
+		Aesthetics.printBorderHorz(1)
+		var userName = readLine()
+		while(signUpCheck(userName, stmt) == false){ 
 			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert("Lets get you signed up!")
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert(">Enter a username<")
-			Aesthetics.printBorderHorz(1)
-			var userName = readLine()
-			while(signUpCheck(userName, stmt) == false){ 
-				Aesthetics.printBorderHorz(1)
-				Aesthetics.printBorderVert("!UH OH!")
-				Aesthetics.printBorderVert("That username has been taken")
-				Aesthetics.printBorderVert("please try another")
-				Aesthetics.printBorderHorz(1)
-				Aesthetics.printBorderVert(">Enter a username<")
-				Aesthetics.printBorderHorz(1)
-				userName = readLine()
-			}
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert(">Enter a password<")
-			Aesthetics.printBorderHorz(1)
-			val password = readLine()
-			val inputString = s"INSERT INTO login(username, password) VALUES (\'$userName\', \'$password\')"
-			print(inputString)
-			stmt.executeUpdate(inputString)
-			return userName
+			Aesthetics.printBorderVert("!UH OH!")
+			Aesthetics.printBorderVert("That username has been taken")
+			Aesthetics.printBorderVert("please try another")
+			Aesthetics.printHeader(">Enter a username<")
+			userName = readLine()
+		}
+		Aesthetics.printHeader(">Enter a password<")
+		val password = readLine()
+		val inputString = s"INSERT INTO login(username, password) VALUES (\'$userName\', \'$password\')"
+		print(inputString)
+		stmt.executeUpdate(inputString)
+		return userName
 	}
-	def login(stmt:Statement): String ={
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert("Go ahead and login")
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert(">Enter your username<")
-			Aesthetics.printBorderHorz(1)
-			var userName = readLine()
-			val inputQuery = s"SELECT username, password FROM login WHERE username = \'$userName\'"
-			val rs = stmt.executeQuery(inputQuery)
-			var checkBool = false
-			var pwdTest = ""
-			while(rs.next()){checkBool = true
-				pwdTest = rs.getString("password")
+	def login(stmt:Statement): String ={//login checks the user inputted username with its password and returns the username if it matches
+		Aesthetics.printHeader("Go ahead and login")
+		Aesthetics.printBorderVert(">Enter your username<")
+		Aesthetics.printBorderHorz(1)
+		var userName = readLine()
+		val inputQuery = s"SELECT username, password FROM login WHERE username = \'$userName\'"
+		val rs = stmt.executeQuery(inputQuery)
+		var checkBool = false
+		var pwdTest = ""
+		while(rs.next()){checkBool = true
+			pwdTest = rs.getString("password")
+		}
+		if (checkBool == false){
+			println(">That username doesnt exist<\n>please create an account<")
+			userName = signUp(stmt)
+		}
+		else{
+			Aesthetics.printHeader(">Enter your password<")
+			var password = readLine()
+			while((pwdTest == password) == false){
+				Aesthetics.printHeader(">Wrong password try again<")
+				password = readLine()
 			}
-			if (checkBool == false){
-				println(">That username doesnt exist<\n>please create an account<")
-				userName = signUp(stmt)
-			}
-			else{
-				Aesthetics.printBorderHorz(1)
-				Aesthetics.printBorderVert(">Enter your password<")
-				Aesthetics.printBorderHorz(1)
-				var password = readLine()
-				while((pwdTest == password) == false){
-					Aesthetics.printBorderHorz(1)
-					Aesthetics.printBorderVert(">Wrong password try again<")
-					Aesthetics.printBorderHorz(1)
-					password = readLine()
-				}
-			}
-			return userName
+		}
+		return userName
 	}
-	def welcomeScreen(stmt:Statement, uName:String){
+	def welcomeScreen(stmt:Statement, uName:String){//welcomeScreen prints the welcome screen to the terminal and handles the user input for Create Routine and View Routine
 		var input = -1
 		while(input != 0){
-			//println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert(s"Welcome $uName")
-			Aesthetics.printBorderHorz(1)
+			Aesthetics.printHeader(s"Welcome $uName")
 			Aesthetics.printBorderVert(2)
 			Aesthetics.printBorderVert("1) Create Routine")
 			Aesthetics.printBorderVert("2) View Routines  ")
@@ -131,14 +111,11 @@ object fitnessApp {
 			}
 		}
 	}
-	def createRoutine(uName:String, stmt:Statement){
-		var inputStr = ""
+	def createRoutine(uName:String, stmt:Statement){//prints various screens for user inputs and builds a routine object based on user inputs
 		var userInput = ""
 		var break = true
 		while(userInput != "<" && userInput != ">"){
-			Aesthetics.printBorderHorz(1)
-			Aesthetics.printBorderVert("Lets build a routine!")
-			Aesthetics.printBorderHorz(1)
+			Aesthetics.printHeader("Lets build a routine!")
 			Aesthetics.printBorderVert(2)
 			Aesthetics.printBorderVert("First, enter a name for your new routine")
 			Aesthetics.printBorderVert(2)
@@ -174,7 +151,8 @@ object fitnessApp {
 		}
 		
 	}
-	def viewRoutines(uName:String, stmt:Statement){
+	def viewRoutines(uName:String, stmt:Statement){//prints screens related for user input for viewing routines as well as creates a routine object and generates its data for viewing
+		
 		val user = new User(uName, stmt)
 		val routineArray:Array[String] = user.getRoutines()
 		var userInput = ""
@@ -204,44 +182,45 @@ object fitnessApp {
 			}
 		}while(userInput != "<")
 	}
-	def viewExercises(routine:Routine, username:String, stmt:Statement){
-			val exerciseArray = routine.getExerciseSet().toArray
-			Aesthetics.printHeader("Routine: " + routine.getRoutineName())
-			for(i<-1 to exerciseArray.size){
-				Aesthetics.printBorderVert(i + ") " + exerciseArray(i-1)._1 + "->" + exerciseArray(i-1)._2)
-				Aesthetics.printBorderHorz(1)
-			}
-			var userInput = readLine(">Input<")
-			val exercise = exerciseArray(userInput.toInt-1)._1
-			val amount = exerciseArray(userInput.toInt-1)._2
-			val routineId = routine.getRoutineId(exercise, amount)
-			do{
-				Aesthetics.printHeader("Input or view data")
-				Aesthetics.printBorderVert("1) Input")
-				Aesthetics.printHeader("2) View")
-				Aesthetics.printBorderVert("< back                                   ")
-				Aesthetics.printBorderHorz(1)
+	def viewExercises(routine:Routine, username:String, stmt:Statement){//viewExercises print list of exercises in a routine which the user can chose from to enter data or view
+		
+		val exerciseArray = routine.getExerciseSet().toArray
+		Aesthetics.printHeader("Routine: " + routine.getRoutineName())
+		for(i<-1 to exerciseArray.size){
+			Aesthetics.printBorderVert(i + ") " + exerciseArray(i-1)._1 + "->" + exerciseArray(i-1)._2)
+			Aesthetics.printBorderHorz(1)
+		}
+		var userInput = readLine(">Input<")
+		val exercise = exerciseArray(userInput.toInt-1)._1
+		val amount = exerciseArray(userInput.toInt-1)._2
+		val routineId = routine.getRoutineId(exercise, amount)
+		do{
+			Aesthetics.printHeader("Input or view data")
+			Aesthetics.printBorderVert("1) Input")
+			Aesthetics.printHeader("2) View")
+			Aesthetics.printBorderVert("< back                                   ")
+			Aesthetics.printBorderHorz(1)
+			userInput = readLine(">Input<")
+			if(userInput == "1") enterData(stmt, username, routine, exercise, amount, routineId)
+			else if(userInput == "2") viewData(routineId, stmt, exercise, amount, routine)
+			else if(userInput != "<"){
+				Aesthetics.printHeader("Enter 1, 2, or <")
 				userInput = readLine(">Input<")
-				if(userInput == "1") enterData(stmt, username, routine, exercise, amount, routineId)
-				else if(userInput == "2") viewData(routineId, stmt, exercise, amount, routine)
-				else if(userInput != "<"){
-					Aesthetics.printHeader("Enter 1, 2, or <")
-					userInput = readLine(">Input<")
-				}
-			}while(userInput != "<")
+			}
+		}while(userInput != "<")
 	}
-
-	def enterData(stmt:Statement, username:String, routine:Routine, exercise:String, amount:String, routineId:Int){
-			Aesthetics.printHeader("Enter data type for " + exercise + "->" + amount)
-			val dataType = readLine(">Input<")
-			Aesthetics.printHeader("Enter " + dataType + " for " + exercise + "->" + amount)
-			val data = readLine(">Input<")
-			Aesthetics.printHeader("Enter date for " + exercise + "->" + amount)
-			val date = readLine(">Input<")
-			var insertDataPoint = s"INSERT INTO datapoint (data, date, type, routineId) VALUES (\'$data\', STR_TO_DATE(\'$date\', \'%m-%d-%Y\'), \'$dataType\', $routineId)"
-			stmt.executeUpdate(insertDataPoint)		
+	def enterData(stmt:Statement, username:String, routine:Routine, exercise:String, amount:String, routineId:Int){//gives the user prompts to input data into an exercise
+		Aesthetics.printHeader("Enter data type for " + exercise + "->" + amount)
+		val dataType = readLine(">Input<")
+		Aesthetics.printHeader("Enter " + dataType + " for " + exercise + "->" + amount)
+		val data = readLine(">Input<")
+		Aesthetics.printHeader("Enter date for " + exercise + "->" + amount)
+		val date = readLine(">Input<")
+		var insertDataPoint = s"INSERT INTO datapoint (data, date, type, routineId) VALUES (\'$data\', STR_TO_DATE(\'$date\', \'%m-%d-%Y\'), \'$dataType\', $routineId)"
+		stmt.executeUpdate(insertDataPoint)		
 	}
-	def viewData(routineId:Int, stmt:Statement, exercise:String, amount:String, routine:Routine){
+	def viewData(routineId:Int, stmt:Statement, exercise:String, amount:String, routine:Routine){//prints data for an exercies as well as a few calculations based on the data
+		
 		val selectStr = s"SELECT data, date, type FROM datapoint WHERE routineId = \'$routineId\' ORDER BY date ASC"
 		val rs = stmt.executeQuery(selectStr)
 		val dataArray = ArrayBuffer[String]()
@@ -253,29 +232,30 @@ object fitnessApp {
 			dataTypeArray.append(rs.getString("type"))
 		}
 		if(dataArray.isEmpty == false){
+			val avgChange = (dataArray(dataArray.size-1).toInt - dataArray(0).toInt) / (dataArray.size.toInt - 1)
 			Aesthetics.printHeader(s"Data for $exercise->$amount")
 			for(i<-0 to (dataArray.size - 1)){
 				Aesthetics.printBorderVert(dataArray(i) + "     " + dateArray(i) + "    " + dataTypeArray(i))
 				Aesthetics.printBorderHorz(1)
 			}
-			println(dataArray.max)
+			Aesthetics.printHeader("Max: " + dataArray.max + " | Min: " + dataArray.min + " | Average Change: " + avgChange)
+			val dummyInput = readLine("Press anything to continue")
 		}
 		else Aesthetics.printHeader("No data")
 	}
 
 	def main(args: Array[String]): Unit = {
-
+		//getting the connection
 		val conn = getConnect()
 		val stmt = conn.createStatement()
 		var uName = ""
-				
+		//printing the opeining screen and selecting login or signup
 		openingScreen()
 		println(">Input<")
 		val firstInput = readLine()
-
 		if(firstInput=="1"){uName = signUp(stmt)}
 		else uName = login(stmt)
-
+		//printing the welcome screen. welcomScreen() contains call to the other methods of the program
 		welcomeScreen(stmt, uName)
 	}
 }
