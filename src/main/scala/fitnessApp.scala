@@ -87,7 +87,7 @@ object fitnessApp {
 		}
 		return userName
 	}
-	def welcomeScreen(stmt:Statement, uName:String){//welcomeScreen prints the welcome screen to the terminal and handles the user input for Create Routine and View Routine
+	def mainScreen(stmt:Statement, uName:String){//welcomeScreen prints the welcome screen to the terminal and handles the user input for Create Routine and View Routine
 		var input = -1
 		while(input != 0){
 			Aesthetics.printHeader(s"Welcome $uName")
@@ -256,6 +256,6 @@ object fitnessApp {
 		if(firstInput=="1"){uName = signUp(stmt)}
 		else uName = login(stmt)
 		//printing the welcome screen. welcomScreen() contains call to the other methods of the program
-		welcomeScreen(stmt, uName)
+		mainScreen(stmt, uName)
 	}
 }
