@@ -8160,3 +8160,26 @@ Jul 21, 2021 4:06:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellat
 WARNING: Unmatched cancel notification for request id 4326
 [0m2021.07.21 16:06:59 INFO  compiling fitnessapp (1 scala source)[0m
 [0m2021.07.21 16:06:59 INFO  time: compiled fitnessapp in 0.92s[0m
+[0m2021.07.21 16:10:55 INFO  compiling fitnessapp (1 scala source)[0m
+[0m2021.07.21 16:10:56 INFO  time: compiled fitnessapp in 1.14s[0m
+Jul 21, 2021 4:34:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4374
+Jul 21, 2021 4:36:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4394
+Jul 21, 2021 4:40:17 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4442
+Jul 21, 2021 4:40:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4449
+Jul 21, 2021 4:47:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4469
+Jul 21, 2021 4:48:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4477
+Jul 21, 2021 4:49:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4485
+[0m2021.07.21 17:20:20 INFO  shutting down Metals[0m
+[0m2021.07.21 17:20:20 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the server stdin, exiting...
+[0m2021.07.21 17:20:20 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the server stdin, exiting...
