@@ -24,12 +24,13 @@ class Routine(username: String, routineName: String, stmt:Statement){
 		Aesthetics.printBorderHorz(1)
 		for(i<-0 to 6){
 			routineList(i).foreach(arg=>exerciseStr += arg._1 + "->" + arg._2 + "\t")
-			println("| "+(i+1)+") "+dayArray(i)+"   |"  + exerciseStr)
+			var dayColStr = (i+1)+") "+dayArray(i)
+			println(Aesthetics.getDayCol(dayColStr)  + " " + exerciseStr)
 			exerciseStr = ""
 			Aesthetics.printBorderHorz(1)
 		}
 	}
-
+//| 4) Wednesday |
     def addDay(dayNum:String){
         val dayNumber = dayNum.toInt - 1
         val day = dayArray(dayNumber)
@@ -89,4 +90,26 @@ class Routine(username: String, routineName: String, stmt:Statement){
 			}
 		}
 	}
+
+	def getRoutineName(): String ={
+		return routineName
+	}
+
+	def getExerciseSet(): Set[(String,String)]={
+		var returnSet:Set[(String,String)] = Set()
+		for(i<-0 to 6){
+			routineList(i).foreach(arg=>returnSet = returnSet ++ (Set(arg)))
+		}
+		return returnSet
+	}
+
+	def getRoutineId(exercise:String, amount:String): Int = {
+		var routineId = 0
+		var selectId = s"SELECT routineId FROM routine WHERE username = \'$username\' AND routineName = \'$routineName\' AND exercise = \'$exercise\' AND amount = \'$amount\' ORDER BY routineId DESC"
+		val rs = stmt.executeQuery(selectId)
+		rs.next()
+		routineId = rs.getInt("routineId")
+		return routineId
+	}
+
 }

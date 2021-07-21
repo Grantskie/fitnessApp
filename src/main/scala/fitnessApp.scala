@@ -8,6 +8,7 @@ import java.sql.ResultSet
 import classes.User
 import classes.Routine
 import classes.Aesthetics
+import scala.collection.mutable.ArrayBuffer
 
 object fitnessApp {
 	
@@ -125,7 +126,7 @@ object fitnessApp {
 					Aesthetics.printBorderHorz(1)		
 				}
 				case 1 => createRoutine(uName, stmt)
-				case 2 => print(viewRoutines(uName, stmt))
+				case 2 => viewRoutines(uName, stmt)
 				case _ => print("Try again")
 			}
 		}
@@ -173,7 +174,6 @@ object fitnessApp {
 		}
 		
 	}
-
 	def viewRoutines(uName:String, stmt:Statement){
 		val user = new User(uName, stmt)
 		val routineArray:Array[String] = user.getRoutines()
@@ -197,13 +197,72 @@ object fitnessApp {
 				val newRoutine = new Routine(uName, routineArray(userInput.toInt - 1), stmt)
 				newRoutine.generateRoutineData(stmt)
 				newRoutine.displayRoutine()
-				Aesthetics.printBorderVert("< back                 enter data >")
+				Aesthetics.printBorderVert("< back                              data >")
 				Aesthetics.printBorderHorz(1)
 				userInput = readLine(">Input<")
+				if(userInput == ">") viewExercises(newRoutine, uName, stmt)
 			}
 		}while(userInput != "<")
 	}
-	
+	def viewExercises(routine:Routine, username:String, stmt:Statement){
+			val exerciseArray = routine.getExerciseSet().toArray
+			Aesthetics.printHeader("Routine: " + routine.getRoutineName())
+			for(i<-1 to exerciseArray.size){
+				Aesthetics.printBorderVert(i + ") " + exerciseArray(i-1)._1 + "->" + exerciseArray(i-1)._2)
+				Aesthetics.printBorderHorz(1)
+			}
+			var userInput = readLine(">Input<")
+			val exercise = exerciseArray(userInput.toInt-1)._1
+			val amount = exerciseArray(userInput.toInt-1)._2
+			val routineId = routine.getRoutineId(exercise, amount)
+			do{
+				Aesthetics.printHeader("Input or view data")
+				Aesthetics.printBorderVert("1) Input")
+				Aesthetics.printHeader("2) View")
+				Aesthetics.printBorderVert("< back                                   ")
+				Aesthetics.printBorderHorz(1)
+				userInput = readLine(">Input<")
+				if(userInput == "1") enterData(stmt, username, routine, exercise, amount, routineId)
+				else if(userInput == "2") viewData(routineId, stmt, exercise, amount, routine)
+				else if(userInput != "<"){
+					Aesthetics.printHeader("Enter 1, 2, or <")
+					userInput = readLine(">Input<")
+				}
+			}while(userInput != "<")
+	}
+
+	def enterData(stmt:Statement, username:String, routine:Routine, exercise:String, amount:String, routineId:Int){
+			Aesthetics.printHeader("Enter data type for " + exercise + "->" + amount)
+			val dataType = readLine(">Input<")
+			Aesthetics.printHeader("Enter " + dataType + " for " + exercise + "->" + amount)
+			val data = readLine(">Input<")
+			Aesthetics.printHeader("Enter date for " + exercise + "->" + amount)
+			val date = readLine(">Input<")
+			var insertDataPoint = s"INSERT INTO datapoint (data, date, type, routineId) VALUES (\'$data\', STR_TO_DATE(\'$date\', \'%m-%d-%Y\'), \'$dataType\', $routineId)"
+			stmt.executeUpdate(insertDataPoint)		
+	}
+	def viewData(routineId:Int, stmt:Statement, exercise:String, amount:String, routine:Routine){
+		val selectStr = s"SELECT data, date, type FROM datapoint WHERE routineId = \'$routineId\' ORDER BY date ASC"
+		val rs = stmt.executeQuery(selectStr)
+		val dataArray = ArrayBuffer[String]()
+		val dateArray = ArrayBuffer[String]()
+		val dataTypeArray = ArrayBuffer[String]()
+		while(rs.next()){
+			dataArray.append(rs.getString("data"))
+			dateArray.append(rs.getString("date").dropRight(9))
+			dataTypeArray.append(rs.getString("type"))
+		}
+		if(dataArray.isEmpty == false){
+			Aesthetics.printHeader(s"Data for $exercise->$amount")
+			for(i<-0 to (dataArray.size - 1)){
+				Aesthetics.printBorderVert(dataArray(i) + "     " + dateArray(i) + "    " + dataTypeArray(i))
+				Aesthetics.printBorderHorz(1)
+			}
+			println(dataArray.max)
+		}
+		else Aesthetics.printHeader("No data")
+	}
+
 	def main(args: Array[String]): Unit = {
 
 		val conn = getConnect()

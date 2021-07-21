@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:182:15: value printBorderHeader is not a member of object classes.Aesthetics[0m
-[0m[[0m[31merror[0m] [0m[0m			Aesthetics.printBorderHeader(s"$i) " + routineArray(i))[0m
-[0m[[0m[31merror[0m] [0m[0m			           ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\fitnessApp\src\main\scala\fitnessApp.scala:256:21: comparing values of types Int and Unit.type using `!=' will always yield true[0m
+[0m[[0m[33mwarn[0m] [0m[0m		if(dataArray.size != Unit){[0m
+[0m[[0m[33mwarn[0m] [0m[0m		                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
